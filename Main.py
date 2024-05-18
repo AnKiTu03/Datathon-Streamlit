@@ -6,6 +6,7 @@ from PIL import Image
 st.set_page_config(page_title="Crime Analysis Dashboard", page_icon=":chart_with_upwards_trend:", layout="wide")
 image = Image.open("1.jpg")
 image = image.resize((1200, 200))  # Set custom width and height
+
 def embed_iframe(url, height=800, width=1200):
     iframe_code = f'<iframe src="{url}" height="{height}" width="{width}" style="border:none;" scrolling="no"></iframe>'
     st.markdown(iframe_code, unsafe_allow_html=True)
