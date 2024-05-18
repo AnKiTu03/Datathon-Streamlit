@@ -26,7 +26,7 @@ if selected == 'DashBoard':
 
 elif selected == 'Patrolling':
     st.title('Map View')
-    iframe_src = "http://ksp-data.s3-website-us-east-1.amazonaws.com"
+    iframe_src = "http://ksp-data.s3-website-us-east-1.amazonaws.com/"
     embed_iframe(iframe_src, height=800, width=1200)
 
 elif selected == 'Video Analysis':
