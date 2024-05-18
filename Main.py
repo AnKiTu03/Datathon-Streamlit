@@ -2,13 +2,18 @@ import streamlit as st
 import streamlit.components.v1 as components
 from streamlit_option_menu import option_menu
 from feedback import feedback_main
+from PIL import Image
 
 def embed_iframe(url, height=800, width=1200):
     iframe_code = f'<iframe src="{url}" height="{height}" width="{width}" style="border:none;" scrolling="no"></iframe>'
     st.markdown(iframe_code, unsafe_allow_html=True)
 
 st.set_page_config(page_title="Crime Analysis Dashboard", page_icon=":chart_with_upwards_trend:", layout="wide")
-st.image("1.jpg", width=1300)
+image = Image.open("1.jpg")
+image = image.resize((1200, 200))  # Set custom width and height
+
+# Add banner image with custom dimensions
+st.image(image)
 
 with st.sidebar:
     selected = option_menu("Main Menu", ['DashBoard', 'MapView', 'Video Analysis', 'Forecast', 'Victim Analysis', 'Chatbot', 'Feedback'],
