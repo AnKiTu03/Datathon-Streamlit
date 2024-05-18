@@ -1,5 +1,4 @@
 import streamlit as st
-import streamlit.components.v1 as components
 from streamlit_option_menu import option_menu
 from feedback import feedback_main
 from PIL import Image
@@ -26,7 +25,6 @@ st.set_page_config(page_title="Crime Analysis Dashboard", page_icon=":chart_with
 image = Image.open("1.jpg")
 image = image.resize((1200, 200))  # Set custom width and height
 
-# Add banner image with custom dimensions
 with st.sidebar:
     selected = option_menu("Main Menu", ['DashBoard', 'Forecast', 'Patrolling', 'Video Analysis', 'Victim Analysis', 'Map Analysis', 'Chatbot', 'Feedback'],
                            icons=['bar-chart', 'graph-up-arrow', 'radar', 'camera-reels', 'person-bounding-box', 'globe-central-south-asia', 'chat-left-dots-fill', 'pencil-square'], 
@@ -41,7 +39,7 @@ if selected == 'DashBoard':
     st.image(image, use_column_width=True)
     embed_iframe("https://frontpage-ksp.streamlit.app/?embed=true")
 
-elif selected == 'Patrolling':
+elif selected == 'MapView':
     st.title('Map View')
     embed_iframe("http://ksp-data.s3-website-us-east-1.amazonaws.com")
 
@@ -51,17 +49,14 @@ elif selected == 'Video Analysis':
 
 elif selected == 'Forecast':
     st.title('Crime Forecast')
-    st.write("Forecasting content goes here.")
     embed_iframe("https://forecast-ksp.streamlit.app/?embed=true")
 
 elif selected == 'Victim Analysis':
     st.title('Victim Analysis')
-    st.write("Victim Analysis content goes here.")
     embed_iframe("https://victim-ksp.streamlit.app/?embed=true")
 
 elif selected == 'Chatbot':
     st.title('Crime Chatbot')
-    st.write("Chatbot content goes here.")
     embed_iframe("https://chatbot-ksp.streamlit.app/?embed=true")
 
 elif selected == 'Map Analysis':
