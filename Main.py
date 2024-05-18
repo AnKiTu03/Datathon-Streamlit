@@ -20,9 +20,30 @@ with st.sidebar:
                            })
 
 if selected == 'DashBoard':
-    st.title('DashBoard')
-    iframe_src = "https://frontpage-ksp.streamlit.app/?embed_options=dark_theme"
-    embed_iframe(iframe_src, height=800, width=1200)
+ st.title("Video Analysis")
+    st.markdown("""
+        <style>
+        .embed-container { 
+            position: relative; 
+            padding-bottom: 56.25%; 
+            height: 0; 
+            overflow: hidden; 
+            max-width: 100%; 
+        } 
+        .embed-container iframe, 
+        .embed-container object, 
+        .embed-container embed { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+        }
+        </style>
+        <div class='embed-container'>
+            <iframe src="https://frontpage-ksp.streamlit.app/?embed=true" frameborder="0" allowfullscreen></iframe>
+        </div>
+    """, unsafe_allow_html=True)
     
 # MapView Section
 elif selected == 'MapView':
@@ -53,7 +74,7 @@ elif selected == 'Video Analysis':
         }
         </style>
         <div class='embed-container'>
-            <iframe src="https://video-crime.streamlit.app/?embed=true&embed_options=disable_scrolling" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://video-crime.streamlit.app/?embed=true" frameborder="0" allowfullscreen></iframe>
         </div>
     """, unsafe_allow_html=True)
 
@@ -83,7 +104,7 @@ elif selected == 'Forecast':
         }
         </style>
         <div class='embed-container'>
-            <iframe src="https://forecast-ksp.streamlit.app/?embed=true&embed_options=disable_scrolling" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://forecast-ksp.streamlit.app/?embed=true" frameborder="0" allowfullscreen></iframe>
         </div>
     """, unsafe_allow_html=True)
 
@@ -113,7 +134,7 @@ elif selected == 'Victim Analysis':
         }
         </style>
         <div class='embed-container'>
-            <iframe src="https://victim-ksp.streamlit.app/?embed=true&embed_options=disable_scrolling" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://victim-ksp.streamlit.app/?embed=true" frameborder="0" allowfullscreen></iframe>
         </div>
     """, unsafe_allow_html=True)
 
@@ -143,7 +164,7 @@ elif selected == 'Chatbot':
         }
         </style>
         <div class='embed-container'>
-            <iframe src="https://chatbot-ksp.streamlit.app/?embed=true&embed_options=disable_scrolling" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://chatbot-ksp.streamlit.app/?embed=true" frameborder="0" allowfullscreen></iframe>
         </div>
     """, unsafe_allow_html=True)
 
