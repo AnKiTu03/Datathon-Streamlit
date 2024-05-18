@@ -1,5 +1,5 @@
 [server]
-maxMessageSize = 300
+maxMessageSize = 1000
 enableCORS = false
 enableXsrfProtection = false
 
