@@ -7,17 +7,14 @@ st.set_page_config(page_title="Crime Analysis Dashboard", page_icon=":chart_with
 image = Image.open("1.jpg")
 image = image.resize((1200, 200))  # Set custom width and height
 
-def embed_iframe(url, height=800, width=1200):
-    iframe_code = f'<iframe src="{url}" height="{height}" width="{width}" style="border:none;" scrolling="no"></iframe>'
-    st.markdown(iframe_code, unsafe_allow_html=True)
-
 with st.sidebar:
-    selected = option_menu("Main Menu", ['DashBoard', 'Forecast', 'Patrolling', 'Video Analysis', 'Victim Analysis', 'Map Analysis', 'Chatbot', 'Feedback'],
+    selected = option_menu("Main Menu", 
+                           ['DashBoard', 'Forecast', 'Patrolling', 'Video Analysis', 'Victim Analysis', 'Map Analysis', 'Chatbot', 'Feedback'],
                            icons=['bar-chart', 'graph-up-arrow', 'radar', 'camera-reels', 'person-bounding-box', 'globe-central-south-asia', 'chat-left-dots-fill', 'pencil-square'], 
                            menu_icon="cast", default_index=0, 
                            styles={
                                "icon": {"font-size": "24px"}, 
-                               "nav-link": {"font-size": "20px", "text-align": "left", "margin": "0px",  "--hover-color": "#48A6EE", "margin-top": "10px"},
+                               "nav-link": {"font-size": "20px", "text-align": "left", "margin": "0px", "--hover-color": "#48A6EE", "margin-top": "10px"},
                                "nav-link-selected": {"background-color": "#48A6EE", "font-weight": "100"}
                            })
 
@@ -28,7 +25,7 @@ if selected == 'DashBoard':
 elif selected == 'Patrolling':
     st.title('Map View')
     iframe_src = "http://ksp-data.s3-website-us-east-1.amazonaws.com/"
-    embed_iframe(iframe_src, height=800, width=1200)
+    st.components.v1.iframe(iframe_src, height=800, scrolling=True)
 
 elif selected == 'Video Analysis':
     st.title("Video Analysis")
