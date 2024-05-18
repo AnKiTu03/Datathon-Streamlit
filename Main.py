@@ -1,17 +1,17 @@
 import streamlit as st
 import streamlit.components.v1 as components
 from streamlit_option_menu import option_menu
+from feedback import feedback_main
 from PIL import Image
 
 def embed_iframe(url, height=800, width=1200):
-    components.iframe(url, height=height, width=width, scrolling=False)
+    iframe_code = f'<iframe src="{url}" height="{height}" width="{width}" style="border:none;" scrolling="no"></iframe>'
+    st.markdown(iframe_code, unsafe_allow_html=True)
 
-# Set page configuration
 st.set_page_config(page_title="Crime Analysis Dashboard", page_icon=":chart_with_upwards_trend:", layout="wide")
-
-# Load and display banner image
 image = Image.open("1.jpg")
-st.image(image.resize((1200, 200)), use_column_width=True)
+image = image.resize((1200, 200))  # Set custom width and height
+st.image(image, use_column_width=True)
 
 # Sidebar with navigation menu
 with st.sidebar:
@@ -25,10 +25,8 @@ with st.sidebar:
                                "nav-link-selected": {"background-color": "#48A6EE", "font-weight": "100"}
                            })
 
-# Embed respective content based on the selected tab
 if selected == 'DashBoard':
-    st.write("Dashboard content goes here.")
-    embed_iframe("https://frontpage-ksp.streamlit.app/?embed=true")
+    st.markdown("<h1>Dashboard content goes here.</h1>", unsafe_allow_html=True)
 
 elif selected == 'Forecast':
     st.title('Crime Forecast')
@@ -36,10 +34,8 @@ elif selected == 'Forecast':
 
 elif selected == 'Patrolling':
     st.title('Map View')
-    st.write("Attempting to load the map view iframe...")
-    iframe_src = "http://ksp-data.s3-website-us-east-1.amazonaws.com"
-    embed_iframe(iframe_src, height=800, width=1200)
-    st.write("If the map does not load, please check the URL and ensure it is correct and accessible.")
+    iframe_src = "http://ksp-data.s3-website-us-east-1.amazonaws.com/"
+    embed_iframe(iframe_src)
 
 elif selected == 'Video Analysis':
     st.title("Video Analysis")
@@ -58,5 +54,4 @@ elif selected == 'Map Analysis':
     embed_iframe("https://map-ksp.streamlit.app/?embed=true")
 
 elif selected == 'Feedback':
-    st.title('Feedback')
-    st.write("Feedback section content goes here.")
+    feedback_main()
