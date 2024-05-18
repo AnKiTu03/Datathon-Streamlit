@@ -15,8 +15,8 @@ st.image(image.resize((1200, 200)), use_column_width=True)
 # Sidebar with navigation menu
 with st.sidebar:
     selected = option_menu("Main Menu", 
-                           ['Patrolling', 'Test Example'],
-                           icons=['radar', 'bar-chart'], 
+                           ['Patrolling'],
+                           icons=['radar'], 
                            menu_icon="cast", default_index=0, 
                            styles={
                                "icon": {"font-size": "24px"}, 
@@ -24,12 +24,9 @@ with st.sidebar:
                                "nav-link-selected": {"background-color": "#48A6EE", "font-weight": "100"}
                            })
 
-# Embed respective content based on the selected tab
 if selected == 'Patrolling':
     st.title('Map View')
-    iframe_src = "http://ksp-data.s3-website-us-east-1.amazonaws.com"
+    st.write("Attempting to load the map view iframe...")
+    iframe_src = "http://ksp-data.s3-website-us-east-1.amazonaws.com/"
     embed_iframe(iframe_src)
-
-elif selected == 'Test Example':
-    st.title('Test Example')
-    embed_iframe("https://www.example.com")
+    st.write("If the map does not load, please check the URL and ensure it is correct and accessible.")
