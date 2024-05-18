@@ -3,28 +3,6 @@ from streamlit_option_menu import option_menu
 from feedback import feedback_main
 from PIL import Image
 
-def embed_iframe(url):
-    iframe_code = f'''
-    <style>
-    .embed-container {{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: none;
-    }}
-    body {{
-        margin: 0;
-        overflow: hidden;
-    }}
-    </style>
-    <div class='embed-container'>
-        <iframe src="{url}" frameborder="0" allow="fullscreen" style="width: 100%; height: 100%;"></iframe>
-    </div>
-    '''
-    st.markdown(iframe_code, unsafe_allow_html=True)
-
 st.set_page_config(page_title="Crime Analysis Dashboard", page_icon=":chart_with_upwards_trend:", layout="wide")
 image = Image.open("1.jpg")
 image = image.resize((1200, 200))  # Set custom width and height
@@ -41,31 +19,34 @@ with st.sidebar:
 
 if selected == 'DashBoard':
     st.image(image, use_column_width=True)
-    embed_iframe("https://frontpage-ksp.streamlit.app/?embed=true")
+    st.components.v1.iframe("https://frontpage-ksp.streamlit.app/?embed=true", height=800, scrolling=True)
 
 elif selected == 'MapView':
     st.title('Map View')
-    embed_iframe("http://ksp-data.s3-website-us-east-1.amazonaws.com")
+    st.components.v1.iframe("http://ksp-data.s3-website-us-east-1.amazonaws.com", height=800, scrolling=True)
 
 elif selected == 'Video Analysis':
     st.title("Video Analysis")
-    embed_iframe("https://video-crime.streamlit.app/?embed=true")
+    st.components.v1.iframe("https://video-crime.streamlit.app/?embed=true", height=800, scrolling=True)
 
 elif selected == 'Forecast':
     st.title('Crime Forecast')
-    embed_iframe("https://forecast-ksp.streamlit.app/?embed=true")
+    st.write("Forecasting content goes here.")
+    st.components.v1.iframe("https://forecast-ksp.streamlit.app/?embed=true", height=800, scrolling=True)
 
 elif selected == 'Victim Analysis':
     st.title('Victim Analysis')
-    embed_iframe("https://victim-ksp.streamlit.app/?embed=true")
+    st.write("Victim Analysis content goes here.")
+    st.components.v1.iframe("https://victim-ksp.streamlit.app/?embed=true", height=800, scrolling=True)
 
 elif selected == 'Chatbot':
     st.title('Crime Chatbot')
-    embed_iframe("https://chatbot-ksp.streamlit.app/?embed=true")
+    st.write("Chatbot content goes here.")
+    st.components.v1.iframe("https://chatbot-ksp.streamlit.app/?embed=true", height=800, scrolling=True)
 
 elif selected == 'Map Analysis':
     st.title('Map Analysis')
-    embed_iframe("https://map-ksp.streamlit.app/?embed=true")
+    st.components.v1.iframe("https://map-ksp.streamlit.app/?embed=true", height=800, scrolling=True)
 
 elif selected == 'Feedback':
     feedback_main()
