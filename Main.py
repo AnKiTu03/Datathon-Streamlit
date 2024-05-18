@@ -27,7 +27,7 @@ with st.sidebar:
 # Embed respective content based on the selected tab
 if selected == 'Patrolling':
     st.title('Map View')
-    iframe_src = "http://ksp-data.s3-website-us-east-1.amazonaws.com/"
+    iframe_src = "http://ksp-data.s3-website-us-east-1.amazonaws.com"
     embed_iframe(iframe_src)
 
 elif selected == 'Test Example':
