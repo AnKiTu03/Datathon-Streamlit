@@ -23,9 +23,10 @@ if selected == 'DashBoard':
 
 elif selected == 'Patrolling':
     st.title('Map View')
-    st.markdown("""
-        <iframe src="http://ksp-data.s3-website-us-east-1.amazonaws.com/" style="width: 100%; height: 800px; border: none;"></iframe>
-    """, unsafe_allow_html=True)
+    html_code = """
+        <iframe src="http://ksp-data.s3-website-us-east-1.amazonaws.com/" style="width:100%; height:800px; border:none;"></iframe>
+    """
+    st.markdown(html_code, unsafe_allow_html=True)
 
 elif selected == 'Video Analysis':
     st.title("Video Analysis")
