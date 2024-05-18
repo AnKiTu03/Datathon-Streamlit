@@ -1,5 +1,5 @@
 [server]
-maxMessageSize = 1000
+maxMessageSize = 300
 enableCORS = false
 enableXsrfProtection = false
 
@@ -7,10 +7,6 @@ enableXsrfProtection = false
 magicEnabled = false
 
 [theme]
-primaryColor = "#1c83e1"
-backgroundColor = "#ffffff"
-secondaryBackgroundColor = "#f0f2f6"
-textColor = "#262730"
 
 [deprecation]
 showPyplotGlobalUse = false
