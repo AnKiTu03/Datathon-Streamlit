@@ -12,6 +12,7 @@ st.set_page_config(page_title="Crime Analysis Dashboard", page_icon=":chart_with
 # Load and display banner image
 image = Image.open("1.jpg")
 
+
 # Sidebar with navigation menu
 with st.sidebar:
     selected = option_menu("Main Menu", 
@@ -26,7 +27,7 @@ with st.sidebar:
 
 # Embed respective content based on the selected tab
 if selected == 'DashBoard':
-    st.image(image, use_column_width=True)
+    st.image(image.resize((1200, 200)), use_column_width=True)
     embed_iframe("https://frontpage-ksp.streamlit.app/?embed=true")
 
 elif selected == 'Patrolling':
