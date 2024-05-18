@@ -54,7 +54,6 @@ def video_main():
         video_path = os.path.join("/tmp", video_file.name)
         with open(video_path, 'wb') as f:
             f.write(video_file.read())
-        st.video(video_path)
 
         frame_prefix = "_frame"
 
