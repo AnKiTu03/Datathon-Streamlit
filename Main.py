@@ -24,7 +24,7 @@ if selected == 'DashBoard':
     st.image(image, use_column_width=True)
     st.components.v1.iframe("https://frontpage-ksp.streamlit.app/?embed=true", height=800, scrolling=True)
 
-elif selected == 'MapView':
+elif selected == 'Patrolling':
     st.title('Map View')
     iframe_src = "http://ksp-data.s3-website-us-east-1.amazonaws.com"
     embed_iframe(iframe_src, height=800, width=1200)
