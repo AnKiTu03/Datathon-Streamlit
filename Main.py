@@ -26,6 +26,7 @@ with st.sidebar:
                            })
 
 if selected == 'DashBoard':
+    st.image(image, use_column_width=True)
     st.markdown("""
         <style>
         .embed-container { 
