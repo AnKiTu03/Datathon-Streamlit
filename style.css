@@ -1,0 +1,22 @@
+/* style.css */
+
+.sidebar .css-1d391kg {
+    background-color: #1f1f1f !important;
+}
+
+.sidebar .css-1d391kg .st-ia {
+    color: white !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+}
+
+.sidebar .css-1d391kg .st-ib {
+    color: #48A6EE !important;
+    font-size: 20px !important;
+}
+
+.embed-container iframe {
+    border: none;
+    width: 100%;
+    height: 100vh;
+}
