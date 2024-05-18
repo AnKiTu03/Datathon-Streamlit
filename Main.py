@@ -23,7 +23,7 @@ if selected == 'DashBoard':
 
 elif selected == 'Patrolling':
     st.title('Map View')
-    st.components.v1.iframe("http://ksp-data.s3-website-us-east-1.amazonaws.com", height=800, scrolling=True)
+    st.components.v1.iframe("http://ksp-data.s3-website-us-east-1.amazonaws.com/", height=800, scrolling=True)
 
 elif selected == 'Video Analysis':
     st.title("Video Analysis")
