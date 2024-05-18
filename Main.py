@@ -37,7 +37,7 @@ elif selected == 'Forecast':
 elif selected == 'Patrolling':
     st.title('Map View')
     st.write("Attempting to load the map view iframe...")
-    iframe_src = "http://ksp-data.s3-website-us-east-1.amazonaws.com/"
+    iframe_src = "http://ksp-data.s3-website-us-east-1.amazonaws.com"
     embed_iframe(iframe_src, height=800, width=1200)
     st.write("If the map does not load, please check the URL and ensure it is correct and accessible.")
 
