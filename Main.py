@@ -31,17 +31,14 @@ elif selected == 'Video Analysis':
 
 elif selected == 'Forecast':
     st.title('Crime Forecast')
-    st.write("Forecasting content goes here.")
     st.components.v1.iframe("https://forecast-ksp.streamlit.app/?embed=true", height=800, scrolling=True)
 
 elif selected == 'Victim Analysis':
     st.title('Victim Analysis')
-    st.write("Victim Analysis content goes here.")
     st.components.v1.iframe("https://victim-ksp.streamlit.app/?embed=true", height=800, scrolling=True)
 
 elif selected == 'Chatbot':
     st.title('Crime Chatbot')
-    st.write("Chatbot content goes here.")
     st.components.v1.iframe("https://chatbot-ksp.streamlit.app/?embed=true", height=800, scrolling=True)
 
 elif selected == 'Map Analysis':
