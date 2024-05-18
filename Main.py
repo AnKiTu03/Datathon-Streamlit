@@ -7,16 +7,20 @@ def embed_iframe(url):
     iframe_code = f'''
     <style>
     .embed-container {{
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         border: none;
     }}
+    body {{
+        margin: 0;
+        overflow: hidden;
+    }}
     </style>
     <div class='embed-container'>
-        <iframe src="{url}" frameborder="0" allowfullscreen></iframe>
+        <iframe src="{url}" frameborder="0" allow="fullscreen" style="width: 100%; height: 100%;"></iframe>
     </div>
     '''
     st.markdown(iframe_code, unsafe_allow_html=True)
