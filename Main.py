@@ -6,6 +6,9 @@ from PIL import Image
 st.set_page_config(page_title="Crime Analysis Dashboard", page_icon=":chart_with_upwards_trend:", layout="wide")
 image = Image.open("1.jpg")
 image = image.resize((1200, 200))  # Set custom width and height
+def embed_iframe(url, height=800, width=1200):
+    iframe_code = f'<iframe src="{url}" height="{height}" width="{width}" style="border:none;" scrolling="no"></iframe>'
+    st.markdown(iframe_code, unsafe_allow_html=True)
 
 with st.sidebar:
     selected = option_menu("Main Menu", ['DashBoard', 'Forecast', 'Patrolling', 'Video Analysis', 'Victim Analysis', 'Map Analysis', 'Chatbot', 'Feedback'],
@@ -21,12 +24,10 @@ if selected == 'DashBoard':
     st.image(image, use_column_width=True)
     st.components.v1.iframe("https://frontpage-ksp.streamlit.app/?embed=true", height=800, scrolling=True)
 
-elif selected == 'Patrolling':
+elif selected == 'MapView':
     st.title('Map View')
-    html_code = """
-        <iframe src="http://ksp-data.s3-website-us-east-1.amazonaws.com/" style="width:100%; height:800px; border:none;"></iframe>
-    """
-    st.markdown(html_code, unsafe_allow_html=True)
+    iframe_src = "http://ksp-data.s3-website-us-east-1.amazonaws.com"
+    embed_iframe(iframe_src, height=800, width=1200)
 
 elif selected == 'Video Analysis':
     st.title("Video Analysis")
