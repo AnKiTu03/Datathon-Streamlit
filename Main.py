@@ -20,12 +20,12 @@ with st.sidebar:
                            })
 
 if selected == 'DashBoard':
-    st.title('Map View')
+    st.title('DashBoard')
     iframe_src = "https://frontpage-ksp.streamlit.app/?embed_options=dark_theme"
     embed_iframe(iframe_src, height=800, width=1200)
     
 # MapView Section
-if selected == 'MapView':
+elif selected == 'MapView':
     st.title('Map View')
     iframe_src = "http://ksp-data.s3-website-us-east-1.amazonaws.com"
     embed_iframe(iframe_src, height=800, width=1200)
