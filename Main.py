@@ -26,7 +26,6 @@ with st.sidebar:
                            })
 
 if selected == 'DashBoard':
-    st.title("DashBoard")
     st.markdown("""
         <style>
         .embed-container { 
