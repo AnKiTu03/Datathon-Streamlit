@@ -11,7 +11,6 @@ st.set_page_config(page_title="Crime Analysis Dashboard", page_icon=":chart_with
 
 # Load and display banner image
 image = Image.open("1.jpg")
-st.image(image.resize((1200, 200)), use_column_width=True)
 
 # Sidebar with navigation menu
 with st.sidebar:
