@@ -15,8 +15,8 @@ image = image.resize((1200, 200))  # Set custom width and height
 # Add banner image with custom dimensions
 
 with st.sidebar:
-    selected = option_menu("Main Menu", ['DashBoard', 'MapView', 'Video Analysis', 'Forecast', 'Victim Analysis','map analysis', 'Chatbot', 'Feedback'],
-                           icons=['bar-chart', 'radar', 'camera-reels', 'graph-up-arrow', 'person-bounding-box', 'globe-central-south-asia','chat-left-dots-fill', 'pencil-square'], 
+    selected = option_menu("Main Menu", ['DashBoard',  'Forecast', 'Patrolling', 'Video Analysis', 'Victim Analysis','Map Analysis', 'Chatbot', 'Feedback'],
+                           icons=['bar-chart', 'graph-up-arrow','radar', 'camera-reels',  'person-bounding-box', 'globe-central-south-asia','chat-left-dots-fill', 'pencil-square'], 
                            menu_icon="cast", default_index=0, 
                            styles={
                                "icon": {"font-size": "24px"}, 
@@ -170,6 +170,36 @@ elif selected == 'Chatbot':
         </style>
         <div class='embed-container'>
             <iframe src="https://chatbot-ksp.streamlit.app/?embed=true" frameborder="0" allowfullscreen></iframe>
+        </div>
+    """, unsafe_allow_html=True)
+
+
+elif selected == 'Map Analysis':
+    st.title('Crime Chatbot')
+    st.write("Chatbot content goes here.")
+    
+    # Embed external content using iframe
+    st.markdown("""
+        <style>
+        .embed-container { 
+            position: relative; 
+            padding-bottom: 56.25%; 
+            height: 0; 
+            overflow: hidden; 
+            max-width: 100%; 
+        } 
+        .embed-container iframe, 
+        .embed-container object, 
+        .embed-container embed { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+        }
+        </style>
+        <div class='embed-container'>
+            <iframe src="https://map-ksp.streamlit.app/?embed=true" frameborder="0" allowfullscreen></iframe>
         </div>
     """, unsafe_allow_html=True)
 
