@@ -19,6 +19,11 @@ with st.sidebar:
                                "nav-link-selected": {"background-color": "#48A6EE", "font-weight": "100"}
                            })
 
+if selected == 'DashBoard'
+    st.title('Map View')
+    iframe_src = "https://frontpage-ksp.streamlit.app/?embed_options=dark_theme"
+    embed_iframe(iframe_src, height=800, width=1200)
+    
 # MapView Section
 if selected == 'MapView':
     st.title('Map View')
