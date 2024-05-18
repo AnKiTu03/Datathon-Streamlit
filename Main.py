@@ -13,7 +13,6 @@ image = Image.open("1.jpg")
 image = image.resize((1200, 200))  # Set custom width and height
 
 # Add banner image with custom dimensions
-st.image(image, use_column_width=True)
 
 with st.sidebar:
     selected = option_menu("Main Menu", ['DashBoard', 'MapView', 'Video Analysis', 'Forecast', 'Victim Analysis', 'Chatbot', 'Feedback'],
