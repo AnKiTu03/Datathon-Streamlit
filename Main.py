@@ -35,11 +35,10 @@ def load_data():
 
 data_frames = load_data()
 accused_data = data_frames['Accused_Data.csv']
-fir_data = data_frames['FIR_Details_Data.csv']
 
 with st.sidebar:
     selected = option_menu("Main Menu", ['DashBoard', 'MapView', 'Video Analysis', 'Forecast', 'Victim Analysis', 'Chatbot', 'Feedback'],
-                           icons=['bar-chart', 'radar', 'camera-reels', 'graph-up-arrow', 'users', 'chat-left-dots-fill', 'pencil-square'], 
+                           icons=['bar-chart', 'radar', 'camera-reels', 'graph-up-arrow', 'person-bounding-box', 'chat-left-dots-fill', 'pencil-square'], 
                            menu_icon="cast", default_index=0, 
                            styles={
                                "icon": {"font-size": "24px"}, 
