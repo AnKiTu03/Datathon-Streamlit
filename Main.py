@@ -4,7 +4,7 @@ from streamlit_option_menu import option_menu
 from feedback import feedback_main
 from PIL import Image
 
-def embed_iframe(url, height=800, width=1200):
+def embed_iframe(url, height=800, width=1400):
     components.iframe(url, height=height, width=width, scrolling=False)
 
 st.set_page_config(page_title="Crime Analysis Dashboard", page_icon=":chart_with_upwards_trend:", layout="wide")
