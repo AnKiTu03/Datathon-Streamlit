@@ -5,32 +5,8 @@ from feedback import feedback_main
 from PIL import Image
 
 def embed_iframe(url):
-    loader_code = f'''
+    iframe_code = f'''
     <style>
-    .loader {{
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        z-index: 1;
-        width: 150px;
-        height: 150px;
-        margin: -75px 0 0 -75px;
-        border: 16px solid #f3f3f3;
-        border-radius: 50%;
-        border-top: 16px solid #3498db;
-        width: 120px;
-        height: 120px;
-        -webkit-animation: spin 2s linear infinite;
-        animation: spin 2s linear infinite;
-    }}
-    @-webkit-keyframes spin {{
-        0% {{ -webkit-transform: rotate(0deg); }}
-        100% {{ -webkit-transform: rotate(360deg); }}
-    }}
-    @keyframes spin {{
-        0% {{ transform: rotate(0deg); }}
-        100% {{ transform: rotate(360deg); }}
-    }}
     .embed-container {{
         position: fixed;
         top: 0;
@@ -40,12 +16,11 @@ def embed_iframe(url):
         border: none;
     }}
     </style>
-    <div class="loader"></div>
     <div class='embed-container'>
-        <iframe src="{url}" frameborder="0" allowfullscreen onload="this.previousSibling.style.display='none'"></iframe>
+        <iframe src="{url}" frameborder="0" allowfullscreen></iframe>
     </div>
     '''
-    st.markdown(loader_code, unsafe_allow_html=True)
+    st.markdown(iframe_code, unsafe_allow_html=True)
 
 st.set_page_config(page_title="Crime Analysis Dashboard", page_icon=":chart_with_upwards_trend:", layout="wide")
 image = Image.open("1.jpg")
@@ -65,7 +40,7 @@ with st.sidebar:
 if selected == 'DashBoard':
     st.image(image, use_column_width=True)
     embed_iframe("https://frontpage-ksp.streamlit.app/?embed=true")
-    
+
 elif selected == 'MapView':
     st.title('Map View')
     embed_iframe("http://ksp-data.s3-website-us-east-1.amazonaws.com")
