@@ -8,6 +8,7 @@ def embed_iframe(url, height=800, width=1200):
     st.markdown(iframe_code, unsafe_allow_html=True)
 
 st.set_page_config(page_title="Crime Analysis Dashboard", page_icon=":chart_with_upwards_trend:", layout="wide")
+st.image("path/to/your/banner_image.jpg", use_column_width=True)
 
 with st.sidebar:
     selected = option_menu("Main Menu", ['DashBoard', 'MapView', 'Video Analysis', 'Forecast', 'Victim Analysis', 'Chatbot', 'Feedback'],
