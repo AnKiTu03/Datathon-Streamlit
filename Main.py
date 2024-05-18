@@ -15,8 +15,8 @@ image = image.resize((1200, 200))  # Set custom width and height
 # Add banner image with custom dimensions
 
 with st.sidebar:
-    selected = option_menu("Main Menu", ['DashBoard', 'MapView', 'Video Analysis', 'Forecast', 'Victim Analysis', 'Chatbot', 'Feedback'],
-                           icons=['bar-chart', 'radar', 'camera-reels', 'graph-up-arrow', 'person-bounding-box', 'chat-left-dots-fill', 'pencil-square'], 
+    selected = option_menu("Main Menu", ['DashBoard', 'MapView', 'Video Analysis', 'Forecast', 'Victim Analysis','map analysis', 'Chatbot', 'Feedback'],
+                           icons=['bar-chart', 'radar', 'camera-reels', 'graph-up-arrow', 'person-bounding-box', 'globe-central-south-asia','chat-left-dots-fill', 'pencil-square'], 
                            menu_icon="cast", default_index=0, 
                            styles={
                                "icon": {"font-size": "24px"}, 
