@@ -1,6 +1,5 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
-from feedback import feedback_main
 from PIL import Image
 
 # Set page configuration
@@ -12,7 +11,7 @@ st.image(image.resize((1200, 200)), use_column_width=True)
 
 # Define function to embed iframes
 def embed_iframe(url, height=800):
-    st.components.v1.iframe(url, height=height, scrolling=True)
+    st.components.v1.iframe(url, height=height, width=1200, scrolling=True)
 
 # Sidebar with navigation menu
 with st.sidebar:
@@ -55,4 +54,5 @@ elif selected == 'Map Analysis':
     embed_iframe("https://map-ksp.streamlit.app/?embed=true")
 
 elif selected == 'Feedback':
-    feedback_main()
+    st.title('Feedback')
+    st.write("Feedback section content goes here.")
