@@ -56,7 +56,12 @@ elif selected == 'Forecast':
     components.iframe("https://forecast-ksp.streamlit.app/?embed=true", height=900, scrolling=True)
 
 elif selected == 'Patrolling':
-    st.title('Map View')
+    st.title('Patrolling Map')
+    st.markdown("""
+        <div style="background-color: #48A6EE; padding: 10px; border-radius: 5px; color: black; font-weight: bold;">
+            This map shows red points as patrol centers and clusters of crime incidents. Zoom in and out to see the clusters change in size and number.
+        </div>
+    """, unsafe_allow_html=True)
     st.warning('Please wait till the map loades', icon="⚠️")
     iframe_src = "https://ksp-data.s3.amazonaws.com/index.html"
     components.iframe(iframe_src, height=800, scrolling=True)
