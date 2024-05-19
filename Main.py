@@ -4,28 +4,37 @@ from streamlit_option_menu import option_menu
 from feedback import feedback_main
 from PIL import Image
 
+# Function to embed iframes
 def embed_iframe(url, height=800, width=1200):
     components.iframe(url, height=height, width=width, scrolling=True)
 
-st.set_page_config(page_title="Crime Analysis Dashboard", page_icon=":chart_with_upwards_trend:", layout="wide")
+# Set the page configuration
+st.set_page_config(
+    page_title="Crime Analysis Dashboard",
+    page_icon=":chart_with_upwards_trend:",
+    layout="wide"
+)
 
-# Load and display banner image
+# Load and display the banner image
 image = Image.open("1.jpg")
 st.image(image.resize((1200, 200)), use_column_width=True)
 
 # Sidebar with navigation menu
 with st.sidebar:
-    selected = option_menu("Main Menu", 
-                           ['DashBoard', 'Forecast', 'Patrolling', 'Video Analysis', 'Victim Analysis', 'Map Analysis', 'Chatbot', 'Feedback'],
-                           icons=['bar-chart', 'graph-up-arrow', 'radar', 'camera-reels', 'person-bounding-box', 'globe-central-south-asia', 'chat-left-dots-fill', 'pencil-square'], 
-                           menu_icon="cast", default_index=0, 
-                           styles={
-                               "icon": {"font-size": "24px"}, 
-                               "nav-link": {"font-size": "20px", "text-align": "left", "margin": "0px", "--hover-color": "#48A6EE", "margin-top": "10px"},
-                               "nav-link-selected": {"background-color": "#48A6EE", "font-weight": "100"}
-                           })
+    selected = option_menu(
+        "Main Menu",
+        ['DashBoard', 'Forecast', 'Patrolling', 'Video Analysis', 'Victim Analysis', 'Map Analysis', 'Chatbot', 'Feedback'],
+        icons=['bar-chart', 'graph-up-arrow', 'radar', 'camera-reels', 'person-bounding-box', 'globe-central-south-asia', 'chat-left-dots-fill', 'pencil-square'],
+        menu_icon="cast",
+        default_index=0,
+        styles={
+            "icon": {"font-size": "24px"},
+            "nav-link": {"font-size": "20px", "text-align": "left", "margin": "0px", "--hover-color": "#48A6EE", "margin-top": "10px"},
+            "nav-link-selected": {"background-color": "#48A6EE", "font-weight": "bold"}
+        }
+    )
 
-# Embed respective content based on the selected tab
+# Display respective content based on the selected tab
 if selected == 'DashBoard':
     st.title('Dashboard')
     embed_iframe("https://frontpage-ksp.streamlit.app/?embed=true")
@@ -59,3 +68,21 @@ elif selected == 'Map Analysis':
 
 elif selected == 'Feedback':
     feedback_main()
+
+# Add some CSS styling to improve the overall UI
+st.markdown("""
+    <style>
+        .css-18e3th9 {
+            padding-top: 1rem;
+        }
+        .css-1d391kg {
+            padding-top: 1rem;
+        }
+        .css-1d3owwe {
+            padding-bottom: 1rem;
+        }
+        .stImage > img {
+            border-radius: 10px;
+        }
+    </style>
+    """, unsafe_allow_html=True)
