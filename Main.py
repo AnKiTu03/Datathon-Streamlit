@@ -3,11 +3,12 @@ import streamlit.components.v1 as components
 from streamlit_option_menu import option_menu
 from feedback import feedback_main
 from PIL import Image
+
 st.set_page_config(page_title="Crime Analysis Dashboard", page_icon=":chart_with_upwards_trend:", layout="wide")
 
-# Load and display banner image
+# Load banner image
 image = Image.open("1.jpg")
-
+image = image.resize((1200, 200))
 
 def embed_iframe(url):
     iframe_code = f'''
@@ -34,7 +35,6 @@ def embed_iframe(url):
     '''
     st.markdown(iframe_code, unsafe_allow_html=True)
 
-
 # Sidebar with navigation menu
 with st.sidebar:
     selected = option_menu("Main Menu", 
@@ -49,7 +49,7 @@ with st.sidebar:
 
 # Embed respective content based on the selected tab
 if selected == 'DashBoard':
-    st.image(image.resize((1200, 200)), use_column_width=True)
+    st.image(image, use_column_width=True)
     st.title('Dashboard')
     embed_iframe("https://frontpage-ksp.streamlit.app/?embed=true")
 
