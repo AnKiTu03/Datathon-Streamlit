@@ -8,7 +8,7 @@ st.set_page_config(page_title="Crime Analysis Dashboard", page_icon=":chart_with
 
 # Load and display banner image
 image = Image.open("1.jpg")
-st.image(image.resize((1200, 200)), use_column_width=True)
+
 
 def embed_iframe(url):
     iframe_code = f'''
@@ -49,7 +49,7 @@ with st.sidebar:
 
 # Embed respective content based on the selected tab
 if selected == 'DashBoard':
-    st.image(image, use_column_width=True)
+    st.image(image.resize((1200, 200)), use_column_width=True)
     st.title('Dashboard')
     components.iframe("https://frontpage-ksp.streamlit.app/?embed=true", height=700, scrolling=True)
 
@@ -59,10 +59,9 @@ elif selected == 'Forecast':
 
 elif selected == 'Patrolling':
     st.title('Map View')
-    st.write("Attempting to load the map view iframe...")
-    iframe_src = "http://ksp-data.s3-website-us-east-1.amazonaws.com/"
+    st.warning('This is a warning', icon="⚠️")
+    iframe_src = "https://ksp-data.s3.amazonaws.com/index.html"
     components.iframe(iframe_src, height=700, scrolling=True)
-    st.write("If the map does not load, please check the URL and ensure it is correct and accessible.")
 
 elif selected == 'Video Analysis':
     st.title("Video Analysis")
