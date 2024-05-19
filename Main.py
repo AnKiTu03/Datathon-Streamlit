@@ -14,7 +14,7 @@ def embed_iframe(url):
     iframe_code = f'''
     <style>
     .embed-container {{
-        position: absolute;
+        position: fixed;
         top: 200px;  /* Adjust this value based on the height of your image */
         left: 0;
         right: 0;
@@ -51,33 +51,34 @@ with st.sidebar:
 if selected == 'DashBoard':
     st.image(image.resize((1200, 200)), use_column_width=True)
     st.title('Dashboard')
-    components.iframe("https://frontpage-ksp.streamlit.app/?embed=true", height=700, scrolling=True)
+    embed_iframe("https://frontpage-ksp.streamlit.app/?embed=true")
 
 elif selected == 'Forecast':
     st.title('Crime Forecast')
-    components.iframe("https://forecast-ksp.streamlit.app/?embed=true", height=700, scrolling=True)
+    embed_iframe("https://forecast-ksp.streamlit.app/?embed=true")
 
 elif selected == 'Patrolling':
     st.title('Map View')
-    st.warning('This is a warning', icon="⚠️")
-    iframe_src = "https://ksp-data.s3.amazonaws.com/index.html"
-    components.iframe(iframe_src, height=700, scrolling=True)
+    st.write("Attempting to load the map view iframe...")
+    iframe_src = "https://ksp-data.s3.amazonaws.com/index.html/"
+    embed_iframe(iframe_src)
+    st.write("If the map does not load, please check the URL and ensure it is correct and accessible.")
 
 elif selected == 'Video Analysis':
     st.title("Video Analysis")
-    components.iframe("https://video-crime.streamlit.app/?embed=true", height=700, scrolling=True)
+    embed_iframe("https://video-crime.streamlit.app/?embed=true")
 
 elif selected == 'Victim Analysis':
     st.title('Victim Analysis')
-    components.iframe("https://victim-ksp.streamlit.app/?embed=true", height=700, scrolling=True)
+    embed_iframe("https://victim-ksp.streamlit.app/?embed=true")
 
 elif selected == 'Chatbot':
     st.title('Crime Chatbot')
-    components.iframe("https://chatbot-ksp.streamlit.app/?embed=true", height=700, scrolling=True)
+    embed_iframe("https://chatbot-ksp.streamlit.app/?embed=true")
 
 elif selected == 'Map Analysis':
     st.title('Map Analysis')
-    components.iframe("https://map-ksp.streamlit.app/?embed=true", height=700, scrolling=True)
+    embed_iframe("https://map-ksp.streamlit.app/?embed=true")
 
 elif selected == 'Feedback':
     feedback_main()
