@@ -6,20 +6,20 @@ from PIL import Image
 
 st.set_page_config(page_title="Crime Analysis Dashboard", page_icon=":chart_with_upwards_trend:", layout="wide")
 
-# Load banner image
+# Load and display banner image
 image = Image.open("1.jpg")
-image = image.resize((1200, 200))
+st.image(image.resize((1200, 200)), use_column_width=True)
 
 def embed_iframe(url):
     iframe_code = f'''
     <style>
     .embed-container {{
-        position: absolute;
+        position: fixed;
         top: 200px;  /* Adjust this value based on the height of your image */
-        left: 300px;  /* Adjust this value if your sidebar width changes */
+        left: 0;  /* Adjust this value if your sidebar width changes */
         right: 0;
         bottom: 0;
-        width: calc(100% - 300px);  /* Adjust this value if your sidebar width changes */
+        width: 100%;  /* Adjust this value if your sidebar width changes */
         height: calc(100% - 200px);  /* Adjust this value based on the height of your image */
         border: none;
     }}
@@ -49,7 +49,6 @@ with st.sidebar:
 
 # Embed respective content based on the selected tab
 if selected == 'DashBoard':
-    st.image(image, use_column_width=True)
     st.title('Dashboard')
     embed_iframe("https://frontpage-ksp.streamlit.app/?embed=true")
 
@@ -59,10 +58,8 @@ elif selected == 'Forecast':
 
 elif selected == 'Patrolling':
     st.title('Map View')
-    st.write("Attempting to load the map view iframe...")
     iframe_src = "http://ksp-data.s3-website-us-east-1.amazonaws.com/"
     embed_iframe(iframe_src)
-    st.write("If the map does not load, please check the URL and ensure it is correct and accessible.")
 
 elif selected == 'Video Analysis':
     st.title("Video Analysis")
