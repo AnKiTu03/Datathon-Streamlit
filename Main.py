@@ -5,8 +5,8 @@ from feedback import feedback_main
 from PIL import Image
 
 # Function to embed iframes
-def embed_iframe(url, height=800, width=1200):
-    components.iframe(url, height=height, width=width, scrolling=True)
+def embed_iframe(url):
+    components.iframe(url, height=st.session_state['iframe_height'], width=st.session_state['iframe_width'], scrolling=True)
 
 # Set the page configuration
 st.set_page_config(
@@ -15,9 +15,15 @@ st.set_page_config(
     layout="wide"
 )
 
+# Set default iframe dimensions in session state
+if 'iframe_height' not in st.session_state:
+    st.session_state['iframe_height'] = st.get_option('browser.gpu-height') - 200  # Leave some space for the header
+if 'iframe_width' not in st.session_state:
+    st.session_state['iframe_width'] = st.get_option('browser.gpu-width')
+
 # Load and display the banner image
 image = Image.open("1.jpg")
-st.image(image.resize((1200, 200)), use_column_width=True)
+st.image(image, use_column_width=True)
 
 # Sidebar with navigation menu
 with st.sidebar:
@@ -46,8 +52,7 @@ elif selected == 'Forecast':
 elif selected == 'Patrolling':
     st.title('Map View')
     st.write("Attempting to load the map view iframe...")
-    iframe_src = "https://ksp-data.s3.amazonaws.com/index.html"
-    embed_iframe(iframe_src)
+    embed_iframe("https://ksp-data.s3.amazonaws.com/index.html")
     st.write("If the map does not load, please check the URL and ensure it is correct and accessible.")
 
 elif selected == 'Video Analysis':
@@ -68,21 +73,3 @@ elif selected == 'Map Analysis':
 
 elif selected == 'Feedback':
     feedback_main()
-
-# Add some CSS styling to improve the overall UI
-st.markdown("""
-    <style>
-        .css-18e3th9 {
-            padding-top: 1rem;
-        }
-        .css-1d391kg {
-            padding-top: 1rem;
-        }
-        .css-1d3owwe {
-            padding-bottom: 1rem;
-        }
-        .stImage > img {
-            border-radius: 10px;
-        }
-    </style>
-    """, unsafe_allow_html=True)
