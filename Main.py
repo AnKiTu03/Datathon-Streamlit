@@ -62,6 +62,7 @@ elif selected == 'Patrolling':
             This map shows red points as patrol centers and clusters of crime incidents. Zoom in and out to see the clusters change in size and number.
         </div>
     """, unsafe_allow_html=True)
+    st.write(" ")
     st.warning('Please wait till the map loades', icon="⚠️")
     iframe_src = "https://ksp-data.s3.amazonaws.com/index.html"
     components.iframe(iframe_src, height=800, scrolling=True)
