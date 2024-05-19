@@ -4,8 +4,23 @@ from streamlit_option_menu import option_menu
 from feedback import feedback_main
 from PIL import Image
 
-def embed_iframe(url, height=800, width=1200):
-    components.iframe(url, height=height, width=width, scrolling=True)
+def embed_iframe(url):
+    iframe_code = f'''
+    <style>
+    .embed-container {{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }}
+    </style>
+    <div class='embed-container'>
+        <iframe src="{url}" frameborder="0" allowfullscreen></iframe>
+    </div>
+    '''
+    st.markdown(iframe_code, unsafe_allow_html=True)
 
 st.set_page_config(page_title="Crime Analysis Dashboard", page_icon=":chart_with_upwards_trend:", layout="wide")
 
