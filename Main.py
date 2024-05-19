@@ -14,13 +14,13 @@ def embed_iframe(url):
     iframe_code = f'''
     <style>
     .embed-container {{
-        position: fixed;
-        top: 100px;  /* Adjust this value if your header height changes */
+        position: absolute;
+        top: 200px;  /* Adjust this value based on the height of your image */
         left: 300px;  /* Adjust this value if your sidebar width changes */
         right: 0;
         bottom: 0;
         width: calc(100% - 300px);  /* Adjust this value if your sidebar width changes */
-        height: calc(100% - 100px);  /* Adjust this value if your header height changes */
+        height: calc(100% - 200px);  /* Adjust this value based on the height of your image */
         border: none;
     }}
     .embed-container iframe {{
