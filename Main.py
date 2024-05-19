@@ -6,7 +6,7 @@ from PIL import Image
 
 # Function to embed iframes
 def embed_iframe(url):
-    components.iframe(url, height=st.session_state['iframe_height'], width=st.session_state['iframe_width'], scrolling=True)
+    components.iframe(url, height=800, width=1200, scrolling=True)
 
 # Set the page configuration
 st.set_page_config(
@@ -14,12 +14,6 @@ st.set_page_config(
     page_icon=":chart_with_upwards_trend:",
     layout="wide"
 )
-
-# Set default iframe dimensions in session state
-if 'iframe_height' not in st.session_state:
-    st.session_state['iframe_height'] = st.get_option('browser.gpu-height') - 200  # Leave some space for the header
-if 'iframe_width' not in st.session_state:
-    st.session_state['iframe_width'] = st.get_option('browser.gpu-width')
 
 # Load and display the banner image
 image = Image.open("1.jpg")
