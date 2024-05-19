@@ -8,29 +8,23 @@ def embed_iframe(url):
     iframe_code = f'''
     <style>
     .embed-container {{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: none;
-    }}
-    .container {{
         position: fixed;
-        top: 0;
-        left: 0;
+        top: 100px;  /* Adjust this value if your header height changes */
+        left: 300px;  /* Adjust this value if your sidebar width changes */
         right: 0;
         bottom: 0;
-        overflow: hidden;
+        width: calc(100% - 300px);  /* Adjust this value if your sidebar width changes */
+        height: calc(100% - 100px);  /* Adjust this value if your header height changes */
+        border: none;
     }}
-    .container iframe {{
+    .embed-container iframe {{
         width: 100%;
         height: 100%;
         border: none;
     }}
     </style>
-    <div class="container">
-        <iframe src="{url}"></iframe>
+    <div class="embed-container">
+        <iframe src="{url}" allowfullscreen></iframe>
     </div>
     '''
     st.markdown(iframe_code, unsafe_allow_html=True)
