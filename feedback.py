@@ -28,7 +28,7 @@ def feedback_main():
     
     st.write(r"$\textsf{\Large Name*}$")
     name = st.text_input("Name",label_visibility="collapsed")
-    st.write(r"$\textsf{\Large Contact(Email)*}$")
+    st.write(r"$\textsf{\Large Email*}$")
     email = st.text_input("Email",label_visibility="collapsed")
     st.write(" ")
     st.write(r"$\textsf{\Large Most useful feature}$")
