@@ -63,7 +63,7 @@ elif selected == 'Patrolling':
         </div>
     """, unsafe_allow_html=True)
     st.write(" ")
-    st.warning('Please wait till the map loades', icon="⚠️")
+    st.warning('Please wait till the map is loading ...', icon="⚠️")
     iframe_src = "https://ksp-data.s3.amazonaws.com/index.html"
     components.iframe(iframe_src, height=800, scrolling=True)
 
