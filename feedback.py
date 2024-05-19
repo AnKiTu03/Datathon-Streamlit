@@ -18,6 +18,14 @@ db = init_firebase()
 
 def feedback_main():
     st.title("Feedback Form")
+    description = """
+    <div style="background-color: #48A6EE; padding: 10px; border-radius: 5px; color: black; font-weight: bold;">
+        We value your feedback to improve our models and features. Please share your thoughts and help us enhance your experience.
+    </div>
+    """
+    st.markdown(description, unsafe_allow_html=True)
+    st.write(" ")
+    
     st.write(r"$\textsf{\Large Name*}$")
     name = st.text_input("Name",label_visibility="collapsed")
     st.write(r"$\textsf{\Large Contact(Email)*}$")
