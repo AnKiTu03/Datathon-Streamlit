@@ -32,7 +32,7 @@ def feedback_main():
     email = st.text_input("Email",label_visibility="collapsed")
     st.write(" ")
     st.write(r"$\textsf{\Large Most useful feature}$")
-    Selected_feature = survey.selectbox("Most useful feature", options=['DashBoard', 'MapView', 'Video Analysis', 'Victim Analysis','Forecast','ChatBot','Patrolling''],label_visibility="collapsed")
+    Selected_feature = survey.selectbox("Most useful feature", options=['DashBoard', 'MapView', 'Video Analysis', 'Victim Analysis','Forecast','ChatBot','Patrolling'],label_visibility="collapsed")
     st.write(" ")
     st.write(r"$\textsf{\Large Overall functioning of all the features}$")
     overall = survey.select_slider(
