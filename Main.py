@@ -38,7 +38,7 @@ def embed_iframe(url):
 # Sidebar with navigation menu
 with st.sidebar:
     selected = option_menu("Main Menu", 
-                           ['DashBoard', 'Forecast', 'Patrolling', 'Video Analysis', 'Victim Analysis',, 'Chatbot', 'Feedback'],
+                           ['DashBoard', 'Forecast', 'Patrolling', 'Video Analysis', 'Victim Analysis','Chatbot', 'Feedback'],
                            icons=['bar-chart', 'graph-up-arrow', 'radar', 'camera-reels', 'person-bounding-box', 'chat-left-dots-fill', 'pencil-square'], 
                            menu_icon="cast", default_index=0, 
                            styles={
