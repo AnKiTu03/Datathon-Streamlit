@@ -38,8 +38,8 @@ def embed_iframe(url):
 # Sidebar with navigation menu
 with st.sidebar:
     selected = option_menu("Main Menu", 
-                           ['DashBoard', 'Forecast', 'Patrolling', 'Video Analysis', 'Victim Analysis', 'Map Analysis', 'Chatbot', 'Feedback'],
-                           icons=['bar-chart', 'graph-up-arrow', 'radar', 'camera-reels', 'person-bounding-box', 'globe-central-south-asia', 'chat-left-dots-fill', 'pencil-square'], 
+                           ['DashBoard', 'Forecast', 'Patrolling', 'Video Analysis', 'Victim Analysis',, 'Chatbot', 'Feedback'],
+                           icons=['bar-chart', 'graph-up-arrow', 'radar', 'camera-reels', 'person-bounding-box', 'chat-left-dots-fill', 'pencil-square'], 
                            menu_icon="cast", default_index=0, 
                            styles={
                                "icon": {"font-size": "24px"}, 
@@ -76,9 +76,6 @@ elif selected == 'Victim Analysis':
 
 elif selected == 'Chatbot':
     components.iframe("https://chatbot-ksp.streamlit.app/?embed=true", height=900, scrolling=True)
-
-elif selected == 'Map Analysis':
-    components.iframe("https://map-ksp.streamlit.app/?embed=true", height=900, scrolling=True)
 
 elif selected == 'Feedback':
     feedback_main()
